@@ -1,19 +1,18 @@
-function getElementWidth(content, padding, border) {
-  return !isNaN(Number.parseFloat(content)) &&
-    !isNaN(Number.parseFloat(padding)) &&
-    !isNaN(Number.parseFloat(border))
-    ? Number.parseFloat(content) +
-        Number.parseFloat(padding) * 2 +
-        Number.parseFloat(border) * 2
-    : "Wrong parameters";
+// Фільтрація масиву чисел
+function filterArray(numbers, value) {
+  let result = [];
+  if (Array.isArray(numbers) && !isNaN(value)) {
+    numbers.forEach((it) => {
+      if (it > value) {
+        result.push(it);
+      }
+    });
+  }
+  return result;
 }
 
-let resultText = "";
-
-resultText += `<li>${getElementWidth("50px", "8px", "4px")}</li>`;
-resultText += `<li>${getElementWidth("60px", "12px", "8.5px")}</li>`;
-resultText += `<li>${getElementWidth("200px", "0px", "0px")}</li>`;
-
-console.log(getElementWidth("50px", "8px", "4px"));
-console.log(getElementWidth("60px", "12px", "8.5px"));
-console.log(getElementWidth("200px", "0px", "0px"));
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
