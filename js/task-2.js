@@ -1,6 +1,6 @@
 // Композиція масивів
 function makeArray(firstArray, secondArray, maxLength) {
-  if (maxLength <= 0 || !isNaN(Numver(maxLength))) return [];
+  if (maxLength <= 0 || !isNaN(Number(maxLength))) return [];
   return firstArray.length > maxLength
     ? firstArray.slice(0, maxLength + 1)
     : secondArray.length > maxLength - firstArray.length
